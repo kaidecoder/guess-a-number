@@ -21,7 +21,11 @@ while (!endOfFile) {
     alertBox.classList.add("success");
     p.innerText = "SUCCESS";
     console.log("success");
-    break;
+    let play = prompt("Would you like to play again? ")
+  if(play !== "yes"){
+    break
   }
+  }
+  
   continue;
 }
