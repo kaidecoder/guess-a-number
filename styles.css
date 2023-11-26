@@ -69,3 +69,13 @@
 .text {
   font-size: 45px;
 }
+
+.btn{
+    padding: 20px 40px;
+    border-radius: 20px;
+    margin-top: 20px;
+    font-size: 24px;
+    background-color: crimson;
+    color: white;
+    
+}
