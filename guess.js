@@ -25,6 +25,7 @@ while (!endOfFile) {
   if(play !== "yes"){
     break
   }
+  continue
   }
   
   continue;
