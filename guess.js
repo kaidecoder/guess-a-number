@@ -2,12 +2,14 @@ const p = document.querySelector("p");
 const alertBox = document.querySelector(".alert-box");
 
 let yourNumber;
-let computerGuess = Math.floor(Math.random() * 100 + 1);
-console.log(computerGuess);
-
+let computerGuess
+computerGuess = Math.floor(Math.random() * 100 + 1);
+  console.log(computerGuess);
 let endOfFile = false;
-
-while (!endOfFile) {
+function guessANumber(){
+  
+  while (!endOfFile) {
+  
   yourNumber = Number(prompt("Please enter a number:  "));
   if (yourNumber > computerGuess) {
     alertBox.classList.add("error");
@@ -30,3 +32,7 @@ while (!endOfFile) {
   
   continue;
 }
+}
+
+
+
