@@ -9,7 +9,6 @@ let computerGuess;
 
 let endOfFile = false;
 function guessANumber() {
-  // let newPromise = new Promise((resolve, reject) => {
     computerGuess = Math.floor(Math.random() * 100 + 1);
     console.log(computerGuess);
     while (!endOfFile) {
@@ -18,7 +17,7 @@ function guessANumber() {
       if (yourNumber > computerGuess) {
         console.log(yourNumber, "too large");
         alertBox.classList.add("warning")
-        text = `${yourNumber} too large`;
+        text = `${yourNumber} too large\n`;
         // setTimeout(() => resolve("too large!"), 800)
         //  setTimeout(() => reject("too slow"), 1000)
         // resolve(text)
@@ -26,7 +25,7 @@ function guessANumber() {
       } else if (yourNumber < computerGuess) {
         console.log(yourNumber, "too small");
         alertBox.classList.add("error")
-        text = `${yourNumber} too small`;
+        text = `${yourNumber} too small\n`;
         // resolve(text)
         // setTimeout(() => resolve("too small"), 2000)
         p.innerText += text;
@@ -47,10 +46,5 @@ function guessANumber() {
 
       continue;
     }
-  // });
-  // let result = await newPromise;
-  // setTimeout(() => p.innerText =`${result}`, 6000)
-  // p.innerText = result; 
-  // console.log("hello", result);
 }
 
