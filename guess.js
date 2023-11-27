@@ -1,5 +1,6 @@
 let p = document.querySelector("p");
 const alertBox = document.querySelector(".alert-box");
+
 let text;
 let yourNumber;
 let computerGuess;
@@ -44,8 +45,9 @@ async function guessANumber() {
     }
   });
   let result = await newPromise;
-  p.innerText = result;
-  // consol?e.log(result);
+  setTimeout(() =>p.innerText=`${result}`, 1000)
+  // p.innerText = result; 
+  console.log("hello", result);
 }
 
 // const myPromise = new Promise((resolve, reject)=>{
