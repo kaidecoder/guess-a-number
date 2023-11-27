@@ -4,35 +4,39 @@ const alertBox = document.querySelector(".alert-box");
 let text;
 let yourNumber;
 let computerGuess;
-computerGuess = Math.floor(Math.random() * 100 + 1);
-console.log(computerGuess);
+
+
 
 let endOfFile = false;
-async function guessANumber() {
-  let newPromise = new Promise((resolve, reject) => {
+function guessANumber() {
+  // let newPromise = new Promise((resolve, reject) => {
+    computerGuess = Math.floor(Math.random() * 100 + 1);
+    console.log(computerGuess);
     while (!endOfFile) {
       // NOTE: NEED TO GENERATE A NEW NUMBER
       yourNumber = Number(prompt("Please enter a number:  "));
       if (yourNumber > computerGuess) {
-        console.log("too large");
-        text = "too large";
-        setTimeout(() => resolve("too large!"), 1000)
-         setTimeout(() => reject("too slow"), 1000)
-        // resolve("too large")
-        p.innerText = text;
+        console.log(yourNumber, "too large");
+        alertBox.classList.add("warning")
+        text = `${yourNumber} too large`;
+        // setTimeout(() => resolve("too large!"), 800)
+        //  setTimeout(() => reject("too slow"), 1000)
+        // resolve(text)
+        p.innerText += text;
       } else if (yourNumber < computerGuess) {
-        console.log("too small");
-        text = "too small";
-        // resolve("too small")
-        setTimeout(() => resolve("too small"), 1000)
-        p.innerText = text;
+        console.log(yourNumber, "too small");
+        alertBox.classList.add("error")
+        text = `${yourNumber} too small`;
+        // resolve(text)
+        // setTimeout(() => resolve("too small"), 2000)
+        p.innerText += text;
       } else {
         alertBox.classList.add("success");
-        text = "SUCCESS";
-        // resolve("success")
-        // p.innerText = text;
-        // console.log("success");
-         setTimeout(() => resolve("too small"), 1000)
+        text = `${yourNumber} SUCCESS`;
+        // resolve(text)
+        p.innerText += text;
+        console.log(yourNumber, "success");
+        //  setTimeout(() => resolve("SUCCESS"), 1000)
         let play = prompt("Would you like to play again? ");
         if (play !== "yes") {
           break;
@@ -43,18 +47,10 @@ async function guessANumber() {
 
       continue;
     }
-  });
-  let result = await newPromise;
-  setTimeout(() =>p.innerText=`${result}`, 1000)
+  // });
+  // let result = await newPromise;
+  // setTimeout(() => p.innerText =`${result}`, 6000)
   // p.innerText = result; 
-  console.log("hello", result);
+  // console.log("hello", result);
 }
 
-// const myPromise = new Promise((resolve, reject)=>{
-//   if(guessANumber){
-//     resolve(p.innerText=text)
-//   }else{
-//     reject("there is no number")
-//   }
-// })
-// myPromise.then(console.log('Done'))
